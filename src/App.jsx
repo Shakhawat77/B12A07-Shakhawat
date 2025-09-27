@@ -4,7 +4,7 @@ import Navbar from "./component/Navbar/Navbar";
 import AllCard from "./component/AllCard";
 import Count from "./component/Navbar/Count";
 import Footer from "./component/Footer";
-
+import 'react-toastify/dist/ReactToastify.css';
 
 const fetchCard = async () => {
   const res = await fetch("/ticket.json");
@@ -40,6 +40,20 @@ function App() {
 
   return (
     <>
+    
+{/* <YourComponents />
+      <ToastContainer 
+        position="top-right" 
+        autoClose={3000} 
+        hideProgressBar={false} 
+        newestOnTop={false} 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+      /> */}
+
       <Navbar />
 
       <Suspense
