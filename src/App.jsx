@@ -6,6 +6,7 @@ import Count from "./component/Navbar/Count";
 import Footer from "./component/Footer";
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const fetchCard = async () => {
   const res = await fetch("/ticket.json");
   return res.json();
