@@ -1,8 +1,9 @@
 import React from "react";
+import { toast } from "react-toastify";
 
-const AllCard = ({ TicketPromise, selectedIssues, resolveIssues, btnClick, handleSelect }) => {
+const AllCard = ({ TicketPromise, selectedIssues, resolveIssues, btnClick, handleSelect, tickets }) => {
   const cardData = React.use(TicketPromise);
-
+ 
   return (
    
     <div className="bg-gray-100 ">
@@ -13,11 +14,11 @@ const AllCard = ({ TicketPromise, selectedIssues, resolveIssues, btnClick, handl
           Customer Tickets
         </h2>
 
-        {cardData.map((issue) => (
+        {tickets.map((issue) => (
           <div key={issue.id}>
             <div
               className="shadow-md rounded-md cursor-pointer bg-slate-100 mb-4 p-4 hover:shadow-lg transition"
-              onClick={() => handleSelect(issue)}
+              onClick={() =>{ toast(`Add to Task: ${issue.title}`); handleSelect(issue)}}
             >
               <div className="flex justify-between items-center flex-wrap">
                 <h3 className="text-[18px] sm:text-[20px]">{issue.title}</h3>
@@ -28,7 +29,7 @@ const AllCard = ({ TicketPromise, selectedIssues, resolveIssues, btnClick, handl
                      {issue.status}
                 </span>
               </div>
-              <p className="pt-2 sm:pt-3 text-sm sm:text-base">{issue.description}</p>
+              <p className="pt-2 sm:pt-3 text-sm sm:text-base line-clamp-2 ">{issue.description}</p>
               <div className="flex justify-between pt-2 sm:pt-3 flex-wrap gap-2">
                 <div className="flex gap-3">
                   <p className="text-xs sm:text-sm">{issue.id}</p>
@@ -56,7 +57,8 @@ const AllCard = ({ TicketPromise, selectedIssues, resolveIssues, btnClick, handl
               [...selectedIssues].map((issue) => (
                 <div key={issue.id}className="shadow-md rounded-md mt-4 bg-slate-100 mb-4 p-4">
                   <p>{issue.title}</p>
-                  <button className="btn btn-secondary mt-3 w-full bg-green-600 border-none shadow-none"onClick={() => btnClick(issue)}
+                  <button className="btn btn-secondary mt-3 w-full bg-green-600 border-none shadow-none"onClick={() => {toast(`Resolve : ${issue.title}`);
+                   btnClick(issue)}}
                   > Complete</button>
                 </div>
               ))

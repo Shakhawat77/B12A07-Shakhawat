@@ -1,10 +1,13 @@
 {
+  "homepage": "https://shakhawat77.github.io/B12A07-Shakhawat",
   "name": "shakhawat",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy":"gh-pages -d dist",
     "build": "vite build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
