@@ -17,7 +17,17 @@ function App(){
     return ( 
     <>  
 <Navbar></Navbar>
-<Count></Count>
+
+
+ <Suspense 
+  fallback={
+    <div className="flex justify-center items-center h-screen w-full"> 
+      <span className="loading loading-dots loading-xl"></span>
+    </div>
+  }
+> 
+  <Count TicketPromise={TicketPromise}></Count>
+</Suspense> 
  <Suspense 
   fallback={
     <div className="flex justify-center items-center h-screen w-full"> 

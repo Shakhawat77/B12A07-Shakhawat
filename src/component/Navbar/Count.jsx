@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { use, useState } from 'react';
 
-const Count = () => {
+const Count = ({TicketPromise}) => {
+    const countData = use(TicketPromise);
+      const [data, setData] = useState(countData);
+      console.log(data);
     return (
        <div className='bg-gray-100'>
          <div className="grid grid-cols-1 md:grid-cols-2  gap-[20px] py-20 mx-20  ">
